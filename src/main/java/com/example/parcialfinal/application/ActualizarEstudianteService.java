@@ -18,7 +18,7 @@ public class ActualizarEstudianteService {
     public Estudiante actualizarEstudiante(Long id, EstudianteDto estudianteDto) {
 
         EstudianteEntity estudianteEntity = estudianteRepositorio.findById(id) // si encuentra el estudiante en la BD
-                .orElseThrow(() -> new EstudianteNoSeEncuentraException());    // si no encuentra el estudiante en la BD
+                .orElseThrow(() -> new EstudianteNoSeEncuentraException("El estudiante no se encuentra en nuestros registros"));    // si no encuentra el estudiante en la BD
 
         estudianteEntity.setNombre(estudianteDto.getNombre());
         estudianteEntity.setApellido(estudianteDto.getApellido());
